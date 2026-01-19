@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vetrina</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <h1>Benvenuto!</h1>
+      <p class="subtitle">nell'Armadietto del Collezionista <b>•</b> il genio della lampada dei collezionisti</p>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <div class="container">
+      <h2 class="section-title">I Nostri Lotti Disponibili</h2>
+
+      <!-- FILTRO Lotti -->
+      <div class="filter-container">
+        <label for="priceFilter">Prezzo:</label>
+        <select id="priceFilter">
+          <option value="all">Tutti</option>
+          <option value="40">40€</option>
+          <option value="50">50€</option>
+          <option value="100">100€</option>
+        </select>
+
+        <label for="statusFilter">Disponibilità:</label>
+        <select id="statusFilter">
+          <option value="all">Tutti</option>
+          <option value="available">Disponibile</option>
+          <option value="sold-out">Sold out</option>
+        </select>
+      </div>
+
+      <!-- GRIGLIA Lotti -->
+      <div id="products-container">
+        <div class="loading">
+          <div class="spinner"></div>
+          <p>Caricamento lotti in corso...</p>
+        </div>
+      </div>
+
+      <!-- SEZIONE CONTATTO -->
+    <section class="contact-section">
+      <h2 class="contact-title">Richiedi i tuoi lotti</h2>
+      <p class="contact-description">
+        Compila il modulo con i lotti selezionati.  
+      </p>
+      <form id="googleForm" action="https://docs.google.com/forms/d/e/1FAIpQLSecoxMDmvbCiPU_Pb4Tjk65j7MdZf6LdtHb0N62C0hhu32Ehw/formResponse" method="POST" target="_blank">
+        <div id="selectedLotsSummary">Nessun lotto selezionato</div>
+        <!-- Campo nascosto per inviare i lotti -->
+        <input type="hidden" name="entry.1059576843" id="lottiSelezionati" value="">
+        <button type="submit">Invia Richiesta</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>Per più informazioni📬: <a href="https://www.facebook.com/profile.php?id=61579017642084&locale=it_IT" class="link-footer">FACEBOOK</a> - <a class="link-footer" href="mailto:armadiettodelmodellista@gmail.com">EMAIL</a></p>
+      <p><a class="link-footer" href="#" onclick="openSitowebModal()">RGDC</a></p>
+    </div>
+  </footer>
+
+  <!-- MODALE CARD -->
+  <div id="lotModal" class="modal">
+    <span class="close">&times;</span>
+    <span class="nav left">&#10094;</span>
+    <span class="nav right">&#10095;</span>
+    <div class="modal-content">
+      <img src="" alt="" id="modalImage">
+      <h3 id="modalTitle"></h3>
+      <p id="modalDescription"></p>
+      <div class="product-price-container">
+        <div class="product-price" id="modalPrice"></div>
+        <button class="add-lot-btn" id="modalAddBtn">Add</button>
+        <div class="product-status" id="modalStatus"></div>
+      </div>
+    </div>
+  </div>
+
+<!-- MODAL INFO -->
+<div id="infoModal" class="modal">
+  <div class="modal-content">
+    <span class="close-info">&times;</span>
+    <p>
+      Questo sito è stato realizzato da 
+      <a href="mailto:rgdclavoro@gmail.com?subject=Richiesta%20Informazioni%20Sito%20Web&body=Buongiorno%20RGDC,%0D%0Aho%20visto%20il%20sito%20che%20ha%20realizzato%20per%20L'Armadietto%20del%20Collezionista,%0D%0Aavrei%20una%20richiesta%20simile,%20mi%20servirebbe%20un%20sitoweb%20con%20le%20seguenti%20caratteristiche/funzioni:%0D%0A--scrivere%20qua%20caratteristiche/funzioni--%0D%0A%0D%0A--altro--%0D%0AIn%20attesa%20di%20un%20suo%20gentile%20riscontro,%0D%0ALe%20invio%20cordiali%20saluti%0D%0A-firma-" target="_blank">RGDC</a></p>
+    </p>
+    <p>Schiaccia il link soprastante per maggiori informazioni.</p>
+  </div>
+</div>
+
+<!-- Sitoweb Modal -->
+<div id="sitowebModal" class="modal">
+  <div class="modal-content" style="max-width: 700px; max-height: 80vh; overflow-y: auto;">
+    <span class="close" onclick="closeSitowebModal()">&times;</span>
+    <p>
+      Questo sito è stato realizzato da 
+      <a href="mailto:rgdclavoro@gmail.com?subject=Richiesta%20Informazioni%20Sito%20Web&body=Buongiorno%20RGDC,%0D%0Aho%20visto%20il%20sito%20che%20ha%20realizzato%20per%20L'Armadietto%20del%20Collezionista,%0D%0Aavrei%20una%20richiesta%20simile,%20mi%20servirebbe%20un%20sitoweb%20con%20le%20seguenti%20caratteristiche/funzioni:%0D%0A--scrivere%20qua%20caratteristiche/funzioni--%0D%0A%0D%0A--altro--%0D%0AIn%20attesa%20di%20un%20suo%20gentile%20riscontro,%0D%0ALe%20invio%20cordiali%20saluti%0D%0A-firma-" target="_blank" style="color: var(--text-dark);">RGDC</a></p>
+    </p>
+    <p>
+      Schiaccia il link soprastante per maggiori informazioni.
+    </p>
+    <p>
+      Nel caso il link non funzioni, scrivere @ <span style="color: var(--text-dark);">rgdclavoro@gmail.com</span> .
+      <br>:(|RGDC|):
+    </p>
+  </div>
+</div>
+
+
+  <!-- SCRIPT JS -->
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
